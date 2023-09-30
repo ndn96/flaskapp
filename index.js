@@ -3,7 +3,7 @@ datasets.forEach(data => {
   teamItem.className = "col-xl-3 col-sm-6 mb-5";
   teamItem.innerHTML = `
       <div class="bg-white rounded shadow-sm py-5 px-4">
-          <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <img src="./images/AvatarAlime.PNG" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">${data.fullname}</h5>
           <span class="small text-uppercase text-muted">${data.vice}</span>
           <ul class="social mb-0 list-inline mt-3">
