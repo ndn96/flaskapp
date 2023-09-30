@@ -50,4 +50,5 @@
 | 1          | Hiển thị file Markdown trên VS Code | `Markdown Footnotes`            | `VSCode`            |
 | 2          | Flask Python | `Flask cho Python Web App`            | [`Go Flask Guide`](https://www.tutorialspoint.com/flask/index.htm)            |
 | 3          | Tạo môi trường venv cho Python | `python -m venv venv`            | [`Hướng dẫn`](https://stackoverflow.com/questions/70242667/how-to-create-venv)            |
-| 3          | Cài đặt môi trường theo file requirements.txt | `pip install -r requirements.txt`            | [`Hướng dẫn`](https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from)            |
+| 4          | Cài đặt môi trường theo file requirements.txt | `pip install -r requirements.txt`            | [`Hướng dẫn`](https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from)            |
+| 5          | Fix nội dung MERGE commit (Các câu lệnh với VIM) | Paste nội dung đã copy từ paste vào vim (12-Update readme + requỉed.txt-Cường) `:wq`            | [`Hướng dẫn`](https://www.keycdn.com/blog/vim-commands)            |
