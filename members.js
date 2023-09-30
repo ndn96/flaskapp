@@ -6,5 +6,8 @@ const datasets = [
   {
       "fullname": "Châu Mạnh Cường",
       "vice": "Thành viên"
-  },
+  },  {
+    "fullname": "Hoàng Trọng Việt",
+    "vice": "Thành viên"
+},
 ];
