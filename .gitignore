@@ -1,9 +1,6 @@
 .git
 node_modules/*
 .idea/*
-venv/*
 newenv/*
-./newenv/*
-./newenv
 newenv/
 package-lock.json
