@@ -2,10 +2,11 @@
 
 # [1]. Thông tin liên hệ
 
-| Số thứ tự | Email                  | Phone     |
-|------------|---------------------------|-----------------------|
-| 1          | danhnamds@gmail.com | `+84788531668`            |
-| 2          | kysuu98@gmail.com      | `Update zô đây nhé!`     |
+| Số thứ tự | Email                  | Phone     | Day Work     |
+|------------|---------------------------|-----------------------|-----------------------|
+| 1          | danhnamds@gmail.com | `+84788531668`            | `+84788531668`            |
+| 2          | kysuu98@gmail.com      | `Update zô đây nhé!`     | `+84788531668`            |
+
 
 # [2]. Các bước sử dụng git
 
@@ -41,3 +42,9 @@
 | 13         | Xóa tệp/thư mục khỏi Git  | `git rm <file/folder>` |
 | 14         | Xem danh sách các nhánh    | `git branch`          |
 | 15         | Hợp nhất nhánh            | `git merge <branch-name>` |
+
+# [Y]. Tài liệu tham khảo
+
+| Số thứ tự | Mục đích                  | Tên công cụ     | Môi trường     |
+|------------|---------------------------|-----------------------|-----------------------|
+| 1          | Hiển thị file Markdown trên VS Code | `Markdown Footnotes`            | `VSCode`            |
