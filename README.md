@@ -49,3 +49,4 @@
 |------------|---------------------------|-----------------------|-----------------------|
 | 1          | Hiển thị file Markdown trên VS Code | `Markdown Footnotes`            | `VSCode`            |
 | 2          | Flask Python | `Flask cho Python Web App`            | [`Go Flask Guide`](https://www.tutorialspoint.com/flask/index.htm)            |
+| 3          | Tạo môi trường venv cho Python | `python -m venv venv`            | [`Hướng dẫn`](https://stackoverflow.com/questions/70242667/how-to-create-venv)            |
