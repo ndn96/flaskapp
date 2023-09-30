@@ -5,7 +5,7 @@
 | Số thứ tự | Email                  | Phone     | Day Work     |
 |------------|---------------------------|-----------------------|-----------------------|
 | 1          | danhnamds@gmail.com | `+84788531668`            | `+84788531668`            |
-| 2          | kysuu98@gmail.com      | `Update zô đây nhé!`     | `T2: 19h-24h; T3: 21h30p-24h; T4: 19h-24h; T7: 19h-24h; CN: 19h-24h  `            |
+| 2          | kysuu98@gmail.com      | `+84335538651`     | `T2: 19h-24h; T3: 21h30p-24h; T4: 19h-24h; T7: 19h-24h; CN: 19h-24h  `            |
 
 
 # [2]. Các bước sử dụng git
@@ -48,3 +48,4 @@
 | Số thứ tự | Mục đích                  | Tên công cụ     | Môi trường     |
 |------------|---------------------------|-----------------------|-----------------------|
 | 1          | Hiển thị file Markdown trên VS Code | `Markdown Footnotes`            | `VSCode`            |
+| 2          | Flask Python | `Flask cho Python Web App`            | [`Go Flask Guide`](https://www.tutorialspoint.com/flask/index.htm)            |
