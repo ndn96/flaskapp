@@ -12,6 +12,6 @@ const datasets = [
     {
         "fullname": "Hoàng Trọng Việt",
         "vice": "Thành viên",
-        "image_url": "./images/AvatarAlime.PNG"
+        "image_url": "./images/anime3.PNG"
     }
 ];
