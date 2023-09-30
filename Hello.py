@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def show_index():
-  return 'Home Page'
+  return 'Home Page-Hihi'
 
 @app.route('/blog/<int:postID>')
 def show_blog(postID):
