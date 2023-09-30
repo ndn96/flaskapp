@@ -1,13 +1,17 @@
 const datasets = [
-  {
-      "fullname": "Nguyễn Danh Nam",
-      "vice": "Trưởng nhóm"
-  },
-  {
-      "fullname": "Châu Mạnh Cường",
-      "vice": "Thành viên"
-  },  {
-    "fullname": "Hoàng Trọng Việt",
-    "vice": "Thành viên"
-},
+    {
+        "fullname": "Nguyễn Danh Nam",
+        "vice": "Trưởng nhóm",
+        "image_url": "./images/anime1.PNG"
+    },
+    {
+        "fullname": "Châu Mạnh Cường",
+        "vice": "Thành viên",
+        "image_url": "./images/anime2.PNG"
+    },
+    {
+        "fullname": "Hoàng Trọng Việt",
+        "vice": "Thành viên",
+        "image_url": "./images/AvatarAlime.PNG"
+    }
 ];

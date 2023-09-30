@@ -17,8 +17,10 @@
 | 4          | Sửa nội dung của 1 file bất kỳ      | Sử dụng VSCode để sửa file bất kỳ     |
 | 5          | Thêm các nội dung vừa sửa đổi vào stage của Git      | `git add .`     |
 | 6          | Xác nhận mục tiêu vừa hoàn thành bằng việc commit lệnh      | `git commit -m "2-Update Layout Dashboard-Cường."`     |
-| 7          | Đẩy code vừa hoàn thành lên đồng bộ trên Server của Github      | `git push -u origin master`     |
+| 7          | Đẩy code vừa hoàn thành lên đồng bộ trên Server của Github      | `git push -u origin`     |
 | 8          | Cập nhật lại code để có được phiên bản mới nhất | `git pull`            |
+| 9          | Kiểm tra trạng thái thay đổi của dự án | `git status`            |
+| 10          | Xem lịch sử commit (chỉnh sửa) | `git log --oneline`            |
 
 # [X]. Các lệnh Git CLI phổ biến
 
