@@ -16,4 +16,3 @@ datasets.forEach(data => {
   `;
   document.querySelector("#members_info").appendChild(teamItem);
 });
-
