@@ -43,6 +43,30 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
+      <div class="container">
+        <div class="row">
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-xxl-down">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!-- Tiêu đề bài viết -->
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Nội dung bài viết -->
+                <div class="modal-body" id="bodyContentPost">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, fuga possimus molestiae officia rem doloribus voluptatum deleniti repellat, esse assumenda asperiores ex reiciendis ea? Excepturi, quos amet consectetur facilis quibusdam laboriosam reprehenderit inventore beatae eaque aspernatur atque autem at, quo rem consequuntur sed tenetur, earum corporis quae incidunt repellendus! Animi praesentium ad architecto. Rem quibusdam similique possimus veritatis ipsam eos cum sunt reprehenderit. Culpa dolores illo ipsa esse, unde ipsum inventore. Eius cumque obcaecati fugit. Nisi laudantium delectus tempora eos assumenda dignissimos ratione, sequi eum corrupti molestiae quibusdam sapiente modi nesciunt fuga voluptatem harum, consequatur beatae ab! Amet, maiores nesciunt!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
         <div class="container"><a class="navbar-brand d-flex align-items-center fw-semi-bold fs-3" href="index.html"> <img class="me-3" src="assets/img/gallery/logo.png" alt="" /></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -263,6 +287,7 @@
       <section class="bg-100">
 
         <div class="container">
+
           <div class="row">
             <div class="col-lg-7 mx-auto text-center my-5">
               <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-4">News</h5>
@@ -308,7 +333,7 @@
               </div>
             </div>
             <div class="col-lg-12 d-flex justify-content-center my-3">
-              <button class="btn btn-lg btn-primary fw-light" type="submit">Join Here
+              <button class="btn btn-lg btn-primary fw-light" type="submit" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Join Here
                 <svg class="bi bi-arrow-right-short" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
                 </svg>
