@@ -633,20 +633,58 @@ function getForm() {
 
 // 1.3 Hiển thị giao diện preview bên phải khung nhập
 
+// function showPreview() {
+//     const heading1String = document.querySelector('.form-heading_1 input')
+//     const heading2String = document.querySelectorAll('.form-heading_2 input')
+//     const paragraph = document.querySelector('.form-text_area')
+//     // heading2String == '' ? '' : heading2String = ['', '']
+//     // paragraph == '' ? '' : paragraph = ''
+
+//     let previewString = `
+//         <h1>${heading1String.value}</h1>
+//         <h2>${heading2String[0].value}</h2>
+//         <h2>${heading2String[1].value}</h2>
+//         <p>${paragraph.value}</p>
+//     `
+
+//     const imageInput = document.getElementById("imageInput");
+//     // const showImageButton = document.getElementById("btn-show_preview");
+//     const displayedImage = document.getElementById("displayedImage");
+
+//     const file = imageInput.files[0];
+    
+//     if (file) {
+//         const reader = new FileReader();
+
+//         reader.onload = function (e) {
+//             displayedImage.src = e.target.result;
+//         };
+
+//         reader.readAsDataURL(file);
+//     } else {
+//         // alert("Please select an image first.");
+//     }
+
+//     document.querySelector('.preview-container').innerHTML = previewString
+// }
+
 function showPreview() {
-    const heading1String = document.querySelector('.form-heading_1 input')
-    const heading2String = document.querySelectorAll('.form-heading_2 input')
-    const paragraph = document.querySelector('.form-text_area')
-    // heading2String == '' ? '' : heading2String = ['', '']
-    // paragraph == '' ? '' : paragraph = ''
+    let previewString = ''
 
-    let previewString = `
-        <h1>${heading1String.value}</h1>
-        <h2>${heading2String[0].value}</h2>
-        <h2>${heading2String[1].value}</h2>
-        <p>${paragraph.value}</p>
-    `
+    const heading1String = document.querySelector(".form-heading_1 input")
 
+    previewString = `<h1>${heading1String.value}</h1>`
+
+    for (let index = 0; index < document.querySelectorAll(".form-heading_2-append").length; index++) {
+        const heading2String = document.querySelectorAll(".form-heading_2-append input")[index]
+        const paragraph2String = document.querySelectorAll(".form-heading_2-append textarea")[index]
+        previewString = previewString + `
+        <h2>${heading2String.value}</h2
+        <p>${paragraph2String.value}</p>
+        
+        `
+    }
+    
     const imageInput = document.getElementById("imageInput");
     // const showImageButton = document.getElementById("btn-show_preview");
     const displayedImage = document.getElementById("displayedImage");
@@ -661,19 +699,40 @@ function showPreview() {
         };
 
         reader.readAsDataURL(file);
-    } else {
-        // alert("Please select an image first.");
     }
+
 
     document.querySelector('.preview-container').innerHTML = previewString
 }
 
 
 // 1.4 Code button add-field remove-field
-function addField() {
-    const formHeading2 = document.querySelector(".form-heading_2-append")
-    const newField = formHeading2.cloneNode(true)
-    formHeading2.parentNode.insertBefore(newField, formHeading2.nextSibling)
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function addField(element) {
+    // const formHeading2 = document.querySelector(".form-heading_2-append")
+    // const newField = formHeading2.cloneNode(true)
+
+    const heading2String = `
+    <div class="form-heading_2-append">
+        <br>
+        <label for="">Heading 2</label>
+        <input onchange="showPreview()" type="heading1-field" class="form-control" id="inputEmail4" placeholder="Heading 2">
+        <br>
+        <textarea onchange="showPreview()" class="form-text_area" style="max-width: 100%;" name="" id="" cols="67" rows="3"></textarea>
+        <button onclick="addField(this)" type="button" class="btn btn-primary add-field">Add</button>
+        <button onclick="addHeading3Field(this)" type="button" class="btn btn-primary add-field">Add heading 3 field</button>
+        <button onclick="removeField(this)" type="button" class="btn btn-danger remove-field">Remove</button>
+
+        <div class="form-heading_3-append"></div>
+    </div>
+    `
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(heading2String, 'text/html');
+    const heading2Element = doc.body.childNodes[0];
+    element.parentNode.parentNode.insertBefore(heading2Element, element.parentElement.nextSibling)
 }
 
 function removeField(element) {
@@ -685,22 +744,17 @@ function removeField(element) {
 function addHeading3Field(element) {
 
     const heading3String = `
-    <br>    
-    <span>Heading 3</span>
-    <input></input>
+    <div class="form-heading_3-append">
+        <br>    
+        <span>Heading 3</span>
+        <input></input>
+    </div>
     `
     const parser = new DOMParser();
     const doc = parser.parseFromString(heading3String, 'text/html');
-    const heading3Element = doc.body;
+    const heading3Element = doc.body.querySelector(".form-heading_3-append");
 
-    const formHeading3 = element.querySelector(".form-heading_3-append")
-
-    // if (element.parentNode.querySelectorAll("body") > 0) {
-    //     formHeading3.innerHTML = ''
-    // } else {
-    // }
-    
-    element.parentNode.parentNode.insertBefore(heading3Element, element.parentNode.nextSibling)
+    element.parentNode.insertBefore(heading3Element, element.parentElement.querySelector(".form-heading_3-append").nextSibling)
     
 }
 
