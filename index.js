@@ -634,16 +634,17 @@ function getForm() {
 // 1.3 Hiển thị giao diện preview bên phải khung nhập
 
 function showPreview() {
-    const heading1String = document.querySelector('.form-heading_1 input').value
+    const heading1String = document.querySelector('.form-heading_1 input')
     const heading2String = document.querySelectorAll('.form-heading_2 input')
-    const paragraph = document.querySelector('.form-text_area').value
-    // heading2String ? '' : heading2String = ['', '']
+    const paragraph = document.querySelector('.form-text_area')
+    // heading2String == '' ? '' : heading2String = ['', '']
+    // paragraph == '' ? '' : paragraph = ''
 
     let previewString = `
-        <h1>${heading1String}</h1>
+        <h1>${heading1String.value}</h1>
         <h2>${heading2String[0].value}</h2>
         <h2>${heading2String[1].value}</h2>
-        <p>${paragraph}</p>
+        <p>${paragraph.value}</p>
     `
 
     const imageInput = document.getElementById("imageInput");
@@ -666,3 +667,41 @@ function showPreview() {
 
     document.querySelector('.preview-container').innerHTML = previewString
 }
+
+
+// 1.4 Code button add-field remove-field
+function addField() {
+    const formHeading2 = document.querySelector(".form-heading_2-append")
+    const newField = formHeading2.cloneNode(true)
+    formHeading2.parentNode.insertBefore(newField, formHeading2.nextSibling)
+}
+
+function removeField(element) {
+    if (document.querySelectorAll(".form-heading_2-append").length > 1) {
+        element.parentNode.remove()
+    }
+}
+
+function addHeading3Field(element) {
+
+    const heading3String = `
+    <br>    
+    <span>Heading 3</span>
+    <input></input>
+    `
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(heading3String, 'text/html');
+    const heading3Element = doc.body;
+
+    const formHeading3 = element.querySelector(".form-heading_3-append")
+
+    // if (element.parentNode.querySelectorAll("body") > 0) {
+    //     formHeading3.innerHTML = ''
+    // } else {
+    // }
+    
+    element.parentNode.parentNode.insertBefore(heading3Element, element.parentNode.nextSibling)
+    
+}
+
+//1.5 Add button arrow
