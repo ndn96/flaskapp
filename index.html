@@ -33,6 +33,9 @@
     <!--    Stylesheets-->
     <!-- ===============================================-->
     <link href="assets/css/theme.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
   </head>
 
@@ -1024,46 +1027,64 @@
               <div class="form-group col-md-6">
                 <div class="form-heading_1">
                   <label for="">Heading 1</label>
-                  <input onchange="showPreview()" type="heading1-field" class="form-control" id="inputEmail4" placeholder="Heading 1">
+                  <input onchange="showPreview(this)" type="heading1-field" class="form-control" id="inputEmail4" placeholder="Heading 1">
                   <!-- <button type="add-heading2-field" class="btn btn-primary" onclick="createForm()">Add heading 2</button> -->
-                  <div class="form-heading_2-append">
+                  <div class="form-heading_2-append" id="_1">
                     <br>
                     <label for="">Heading 2</label>
-                    <input onchange="showPreview()" type="heading1-field" class="form-control" id="inputEmail4" placeholder="Heading 2">
+                    <input onchange="showPreview(this)" type="heading1-field" class="form-control" id="inputEmail4" placeholder="Heading 2">
                     <br>
-                    <textarea onchange="showPreview()" class="form-text_area" style="max-width: 100%;" name="" id="" cols="67" rows="3"></textarea>
+                    <textarea onchange="showPreview(this)" class="form-text_area" style="max-width: 100%;" name="" id="" cols="67" rows="3"></textarea>
                     <button onclick="addField(this)" type="button" class="btn btn-primary add-field">Add</button>
-                    <button onclick="addHeading3Field(this)" type="button" class="btn btn-primary add-field">Add heading 3 field</button>
+                    <button onclick="addHeading3Field(this)" type="button" class="btn btn-secondary add-field">Subfield</button>
                     <button onclick="removeField(this)" type="button" class="btn btn-danger remove-field">Remove</button>
 
                     <div class="form-heading_3-append"></div>
                   </div>
                   
-
                 </div>
-
-  
-                <!-- Upload image -->
-                <br>
-                <label>Upload image</label>
-                <input onchange="showPreview()" type="file" id="imageInput" accept="image/*" class="btn btn-block" multiple>
-                <!-- <button id="showImageButton">Show Image</button> -->
 
               </div>
      
               <div class="col-md-6">
 
-                <div class="preview-container">
+                <div class="preview-container border border-primary p-3 rounded">
                   
+                  <div class="preview-container_heading p-5 bg-primary text-center text-white rounded">
+                    <h1 class="text-white">My First Bootstrap 4 Page</h1>
+                    <p>Resize this responsive page to see the effect!</p> 
+                  </div>
+                  <br>
+                  <div class="preview-container_body" id="_1">
+                    <h2>Vụ nhà xe Thành Bưởi sẽ xử lý nghiêm, không vùng cấm</h2>
+                    <p class="text-justify">Theo ông Lâm, kế hoạch của UBND TP chỉ đạo chính quyền địa phương sẽ chịu trách nhiệm xử lý hành chính; cảnh sát giao thông tuần tra sẽ xử lý hành vi vi phạm dừng đỗ xe trên cơ sở hệ thống báo hiệu, biển báo giao thông; Sở Giao thông vận tải sẽ quản lý hoạt động kinh doanh thông qua việc thanh tra, kiểm tra.
+
+                      Cũng tại phiên họp, bà Lê Thị Huỳnh Mai - giám đốc Sở Kế hoạch và Đầu tư TP.HCM - cho biết 10 tháng đầu năm, chỉ số sản xuất toàn ngành công nghiệp (IIP) tăng 3,7% so với cùng kỳ, với 4 ngành công nghiệp trọng điểm, chỉ số sản xuất công nghiệp tăng 6,3%. Tổng mức bán lẻ hàng hóa và doanh thu dịch vụ tiêu dùng tăng 9,2%. Kim ngạch xuất khẩu giảm 13,4% so với cùng kỳ.</p>
+                    <!-- <div style="padding: 10px;" class="preview-container_body-subfield bg-secondary text-white rounded">
+                      <p><i>Liên quan đến nội dung sơ kết một năm thực hiện quyết định 2536, Chủ tịch UBND TP.HCM Phan Văn Mãi nhìn nhận dù có cố gắng cải thiện nhưng vẫn còn tình trạng đùn đẩy trách nhiệm, không rõ quan điểm chính kiến.</i></p>
+                    </div> -->
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <div style="max-width: 600px; max-height: 400px; width: 600px; height: 250px;" id="demo" class="display-carousel-image carousel slide mt-4" data-ride="carousel">
+                      <img style="max-width: 500px; max-height: 250px; width: 600px; height: 250px;" src="https://t4.ftcdn.net/jpg/03/16/68/69/360_F_316686992_OvCTP1wfazJhBeMrBBDUGooufSmj2O8G.jpg">
+                    </div>
+
+                  </div>
+
                 </div>
-                <img id="displayedImage" style="max-width: 300px; max-height: 300px;">
 
               </div>
+
+              <!-- Upload image -->
+              <br>
+              <label>Upload image</label>
+              <input onchange="showCarouselImage(this)" type="file" id="imageInput" accept="image/*" class="btn btn-block" multiple>
               
+              <!-- <button id="showImageButton">Show Image</button> -->
+              <br><br>
+              <!-- <img id="displayedImage" style="max-width: 300px; max-height: 300px;"> -->
+
             </div>
-                
-            <!-- 1.3 Hiển thị giao diện preview bên phải khung nhập -->
-            
             
             <!-- Test -->
             

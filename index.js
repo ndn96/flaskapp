@@ -592,6 +592,25 @@
 // });
 
 
+//Class datapreview
+let dataPreview = [
+    {
+        heading1String: "",
+        heading2String: [
+            {
+                heading2: "",
+                text: "",
+                subfield: [
+                    {
+                        text: ""
+                    }
+                ],
+                image: []
+            }
+        ]
+    }
+]
+
 // 1.1 Hiển thị giao diện form nhập liệu
 
 function createForm() {
@@ -668,41 +687,130 @@ function getForm() {
 //     document.querySelector('.preview-container').innerHTML = previewString
 // }
 
-function showPreview() {
-    let previewString = ''
+function createData() {
 
-    const heading1String = document.querySelector(".form-heading_1 input")
+}
 
-    previewString = `<h1>${heading1String.value}</h1>`
+function showPreview(element) {
 
-    for (let index = 0; index < document.querySelectorAll(".form-heading_2-append").length; index++) {
-        const heading2String = document.querySelectorAll(".form-heading_2-append input")[index]
-        const paragraph2String = document.querySelectorAll(".form-heading_2-append textarea")[index]
-        previewString = previewString + `
-        <h2>${heading2String.value}</h2
-        <p>${paragraph2String.value}</p>
-        
+    //Heading 1
+    const heading1String = document.querySelector(".form-heading_1 input").value
+    document.querySelector(".preview-container_heading").innerHTML = `
+        <h1 class="text-white">${heading1String}</h1>
+        <p>Resize this responsive page to see the effect!</p>
+    `
+
+    //Heading 2
+    if (element.parentNode.getAttribute("id") && element.parentNode.getAttribute("class") == "form-heading_2-append") {
+        const heading2String = document.querySelector(`.form-heading_2-append#${element.parentNode.getAttribute("id")} input`).value
+        const textHeading2String = document.querySelector(`.form-heading_2-append#${element.parentNode.getAttribute("id")} textarea`).value
+
+        if (document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).querySelector(".preview-container_body-subfield")) {
+            var subfield = document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).querySelector(".preview-container_body-subfield")
+        }
+
+        // console.log(heading2String)
+        document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).innerHTML = `
+            <h2>${heading2String}</h2>
+            <p class="text-justify">${textHeading2String}</p>
         `
-    }
-    
-    const imageInput = document.getElementById("imageInput");
-    // const showImageButton = document.getElementById("btn-show_preview");
-    const displayedImage = document.getElementById("displayedImage");
-
-    const file = imageInput.files[0];
-    
-    if (file) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-            displayedImage.src = e.target.result;
-        };
-
-        reader.readAsDataURL(file);
+        if (subfield) {
+            document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).appendChild(subfield)
+        }
     }
 
+    //Subfield
+    if (element.parentNode.parentNode.getAttribute("id") && element.parentNode.parentNode.getAttribute("class") == "row form-heading_3-append d-flex flex-row") {
+        // const textSubfield = document.querySelectorAll(".form-heading_3-append")[1].querySelector(".heading_3-text textarea").value
+        // console.log(textSubfield)
+        // console.log(document.querySelector(`.preview-container_body#${element.parentNode.parentNode.getAttribute("id")}`).querySelector(".preview-container_body-subfield"))
+        document.querySelector(`.preview-container_body#${element.parentNode.parentNode.getAttribute("id")}`).querySelector(".preview-container_body-subfield").innerHTML = `
+            <p class="text-justify">${element.value}</p>
+        `
+    }  
+    
+    // const imageInput = document.getElementById("imageInput");
+    
+    // const displayedImage = document.getElementById("displayedImage");
 
-    document.querySelector('.preview-container').innerHTML = previewString
+    // const file = imageInput.files[0];
+    
+    // if (file) {
+    //     const reader = new FileReader();
+
+    //     reader.onload = function (e) {
+    //         displayedImage.src = e.target.result;
+    //     };
+
+    //     reader.readAsDataURL(file);
+    // }
+
+
+    // document.querySelector('.preview-container').innerHTML = previewString
+}
+
+function showCarouselImage(e) {
+    const displayedImage = document.querySelector(".display-carousel-image")
+    
+    //List src store all src image
+    let listSrcImage = []
+    
+    for (let index = 0; index < e.files.length; index++) {
+        listSrcImage.push(URL.createObjectURL(e.files[index]))
+    }
+    
+    var carouselImageString = `
+    <ul hidden class="carousel-indicators">
+    `
+
+    for (let index = 0; index < listSrcImage.length; index++) {
+        if (index == 0) {
+            carouselImageString = carouselImageString + `
+            <li data-target="#demo" data-slide-to="${index}" class="active"></li>
+            `
+        } else {
+            carouselImageString = carouselImageString + `
+            <li data-target="#demo" data-slide-to="${index}" class></li>
+            `
+        }
+    }
+
+    carouselImageString = carouselImageString + `
+    </ul>
+    <div class="carousel-inner">
+    `
+
+    for (let index = 0; index < listSrcImage.length; index++) {
+        if (index == 0) {
+            carouselImageString = carouselImageString + `
+            <div class="carousel-item active">
+                <img style="max-width: 500px; max-height: 250px; width: 600px; height: 250px;" src="${listSrcImage[index]}" alt="Los Angeles">
+            </div>
+            `
+        } else {
+            carouselImageString = carouselImageString + `
+            <div class="carousel-item">
+                <img style="max-width: 500px; max-height: 250px; width: 600px; height: 250px;" src="${listSrcImage[index]}" alt="Los Angeles">
+            </div>
+            `
+        }
+    }
+
+    // carouselImageString = carouselImageString + `
+    // </div>
+    //     <!-- Left and right controls -->
+    //     <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    //     <span class="carousel-control-prev-icon"></span>
+    //     </a>
+    //     <a class="carousel-control-next" href="#demo" data-slide="next">
+    //     <span class="carousel-control-next-icon"></span>
+    //     </a>
+    // `
+    displayedImage.innerHTML = carouselImageString
+
+    console.log(listSrcImage)
+    
+
 }
 
 
@@ -711,51 +819,118 @@ function insertAfter(referenceNode, newNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+let id = '_1';
+function countId() {
+    const temp = parseInt(id.replace("_", "")) + 1
+    id = "_" + temp.toString()
+    return id
+}
+
+let idSubField = '_0';
+function countidSubField() {
+    const temp = parseInt(idSubField.replace("_", "")) + 1
+    idSubField = "_" + temp.toString()
+    return idSubField
+}
+
+
 function addField(element) {
     // const formHeading2 = document.querySelector(".form-heading_2-append")
     // const newField = formHeading2.cloneNode(true)
-
+// id="${parseInt(document.querySelectorAll(".form-heading_2-append")[document.querySelectorAll(".form-heading_2-append").length - 1].getAttribute("id")) + 1}
+//id="${parseInt(element.parentNode.getAttribute("id")) + 1}"
     const heading2String = `
-    <div class="form-heading_2-append">
+    <div class="form-heading_2-append" id="${countId()}">
+        <br>
         <br>
         <label for="">Heading 2</label>
-        <input onchange="showPreview()" type="heading1-field" class="form-control" id="inputEmail4" placeholder="Heading 2">
+        <input onchange="showPreview(this)" type="heading1-field" class="form-control" id="inputEmail4" placeholder="Heading 2">
         <br>
-        <textarea onchange="showPreview()" class="form-text_area" style="max-width: 100%;" name="" id="" cols="67" rows="3"></textarea>
+        <textarea onchange="showPreview(this)" class="form-text_area" style="max-width: 100%;" name="" id="" cols="67" rows="3"></textarea>
         <button onclick="addField(this)" type="button" class="btn btn-primary add-field">Add</button>
-        <button onclick="addHeading3Field(this)" type="button" class="btn btn-primary add-field">Add heading 3 field</button>
+        <button onclick="addHeading3Field(this)" type="button" class="btn btn-secondary add-field">Subfield</button>
         <button onclick="removeField(this)" type="button" class="btn btn-danger remove-field">Remove</button>
 
         <div class="form-heading_3-append"></div>
     </div>
     `
     const parser = new DOMParser();
-    const doc = parser.parseFromString(heading2String, 'text/html');
+    let doc = parser.parseFromString(heading2String, 'text/html');
     const heading2Element = doc.body.childNodes[0];
     element.parentNode.parentNode.insertBefore(heading2Element, element.parentElement.nextSibling)
+
+    const heading2StringPreview = `
+    <div class="preview-container_body mt-2" id="${id}">
+    <h2>Vụ nhà xe Thành Bưởi sẽ xử lý nghiêm, không vùng cấm</h2>
+        <p class="text-justify">Theo ông Lâm, kế hoạch của UBND TP chỉ đạo chính quyền địa phương sẽ chịu trách nhiệm xử lý hành chính; cảnh sát giao thông tuần tra sẽ xử lý hành vi vi phạm dừng đỗ xe trên cơ sở hệ thống báo hiệu, biển báo giao thông; Sở Giao thông vận tải sẽ quản lý hoạt động kinh doanh thông qua việc thanh tra, kiểm tra.
+        Cũng tại phiên họp, bà Lê Thị Huỳnh Mai - giám đốc Sở Kế hoạch và Đầu tư TP.HCM - cho biết 10 tháng đầu năm, chỉ số sản xuất toàn ngành công nghiệp (IIP) tăng 3,7% so với cùng kỳ, với 4 ngành công nghiệp trọng điểm, chỉ số sản xuất công nghiệp tăng 6,3%. Tổng mức bán lẻ hàng hóa và doanh thu dịch vụ tiêu dùng tăng 9,2%. Kim ngạch xuất khẩu giảm 13,4% so với cùng kỳ.</p>
+    </div>
+
+    <div style="padding: 10px;" class="preview-container_body-subfield bg-secondary text-white rounded">
+        
+    </div>
+    `
+    doc = parser.parseFromString(heading2StringPreview, 'text/html');
+    const heading2StringPreviewElement = doc.body.childNodes[0];
+
+    document.querySelector(".preview-container").insertBefore(heading2StringPreviewElement, document.querySelector(".preview-container").querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).nextSibling)
 }
 
 function removeField(element) {
+    
     if (document.querySelectorAll(".form-heading_2-append").length > 1) {
+        // console.log(document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`))
+        document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).remove()
         element.parentNode.remove()
     }
+}
+
+function removeSubField(element) {
+    element.parentNode.parentNode.remove()
 }
 
 function addHeading3Field(element) {
 
     const heading3String = `
-    <div class="form-heading_3-append">
-        <br>    
-        <span>Heading 3</span>
-        <input></input>
+    <div class="row form-heading_3-append d-flex flex-row" id="${countidSubField()}">
+        <div class="col-sm-2">
+            <br>    
+            <span>Subfield</span>
+        </div>
+        <div class="heading_3-text col-sm-10">
+            <br>    
+            <textarea onchange="showPreview(this)" class="form-text_area" style="max-width: 100%;" name="" id="" cols="55" rows="2"></textarea>
+        </div>
+        <!-- <div class="col-sm-2">
+            <br>    
+            <button onclick="removeSubField(this)" type="button" class="btn btn-secondary">X</button>
+        </div> -->
     </div>
     `
     const parser = new DOMParser();
-    const doc = parser.parseFromString(heading3String, 'text/html');
+    let doc = parser.parseFromString(heading3String, 'text/html');
     const heading3Element = doc.body.querySelector(".form-heading_3-append");
 
-    element.parentNode.insertBefore(heading3Element, element.parentElement.querySelector(".form-heading_3-append").nextSibling)
-    
+
+    //Preview
+    const heading3SubFieldString = `
+    <div style="padding: 10px;" class="preview-container_body-subfield bg-secondary text-white rounded">
+        <p class="text-justify"><i>Liên quan đến nội dung sơ kết một năm thực hiện quyết định 2536, Chủ tịch UBND TP.HCM Phan Văn Mãi nhìn nhận dù có cố gắng cải thiện nhưng vẫn còn tình trạng đùn đẩy trách nhiệm, không rõ quan điểm chính kiến.</i></p>
+    </div>
+    `
+
+    doc = parser.parseFromString(heading3SubFieldString, 'text/html');
+    const heading3SubFieldElement = doc.body.querySelector(".preview-container_body-subfield");
+    //Preview
+
+    if (element.parentNode.querySelectorAll(".form-heading_3-append").length < 2) {
+        element.parentNode.insertBefore(heading3Element, element.parentElement.querySelector(".form-heading_3-append").nextSibling)
+        document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).insertBefore(heading3SubFieldElement, document.querySelector(`.preview-container_body#${element.parentNode.getAttribute("id")}`).querySelector(".preview-container_body-subfield"))
+    }
 }
 
-//1.5 Add button arrow
+//1.5 Add button arrow\
+
+//1. Xây dựng giao diện theo modal
+//2. Xây dựng khung preview
+//3. Hiện ảnh theo carouel
